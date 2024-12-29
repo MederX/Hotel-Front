@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# Hotel Booking System Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This document outlines the **frontend service** for the Hotel Booking System. Developed using **React**, the frontend integrates seamlessly with the backend to provide a user-friendly interface for hotel management operations. The application features responsive styling using **CSS** and **Bootstrap**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### User Management
+- Register and log in to the application.  
+- Retrieve information for the currently logged-in user.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Room Management
+- Browse and filter available rooms.  
+- View detailed room information, including availability by date.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Booking Management
+- Book rooms securely and receive booking confirmations.  
+- Access booking history for logged-in users.
+- confirm booking by confirmation number
 
-### `npm test`
+### Authentication
+- Secured endpoints using **JWT** (JSON Web Tokens).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| **Category**          | **Technology**         |
+|------------------------|------------------------|
+| **Frontend Framework** | React                 |
+| **Styling**            | CSS, Bootstrap        |
+| **State Management**   | Redux                 |
+| **Authentication**     | JSON Web Tokens (JWT) |
+| **Deployment**         | AWS                   |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Prerequisites
 
-### `npm run eject`
+Before running the project locally, ensure you have the following installed:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Node.js (version 18.x or higher).  
+- npm or yarn (for package management).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Setup Instructions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone the Repository**  
+   Open a terminal and run:
+   ```bash
+   git clone https://github.com/your-repo/Hotel-Front.git
+   cd Hotel-Front
+   ```
 
-## Learn More
+2. **Install Dependencies**  
+   Install all required project dependencies by running:
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Environment Variables**  
+   Create a `.env` file in the root directory of the project and add the following configurations:
+   ```env
+   REACT_APP_BACKEND_URL=http://localhost:8080  # Replace with your backend URL
+   REACT_APP_JWT_SECRET=your_jwt_secret        # Replace with your JWT secret
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Run the Application Locally**  
+   Start the development server by running:
+   ```bash
+   npm start
+   ```
 
-### Code Splitting
+5. **Access the Frontend**  
+   Open a web browser and navigate to:  
+   [http://localhost:3000](http://localhost:3000)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## API Endpoints
+I will add you to the postman workspace
+The following APIs are integrated into the frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### User Endpoints
+- `POST /RegisterUser` - Register a new user.  
+- `POST /Login` - Log in to the application.  
+- `GET /GetAllUsersAsAdmin` - Retrieve all users (Admin access).  
+- `GET /GetUserbyID` - Get user information by ID.  
+- `GET /getLoggedInUserInfo` - Retrieve logged-in user details.  
+- `GET /getUserBookingHistory` - View user booking history.  
+- `DELETE /DeleteUser` - Delete a user profile.
 
-### Making a Progressive Web App
+### Room Endpoints
+- `POST /AddRoom` - Add a new room (Admin access).  
+- `GET /GetAllRooms` - View all available rooms.  
+- `GET /GetRoomById` - Retrieve room details by ID.  
+- `PUT /UpdateRoomById` - Update room details (Admin access).  
+- `DELETE /DeleteRoomById` - Remove a room from the system (Admin access).  
+- `GET /AllAvailableRooms` - View currently available rooms.  
+- `GET /GetAvailableRoomByDate` - Check room availability for specific dates.  
+- `GET /allRoomTypes` - View all room types.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Booking Endpoints
+- `POST /BookARoom` - Make a room booking.  
+- `GET /GetBokingConfirmation` - Retrieve booking confirmation details.  
+- `GET /GetBookingsByUserId` - Fetch bookings for a specific user.  
+- `DELETE /CancelBookingByUserId` - Cancel an existing booking.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Deployment
 
-### Deployment
+The Hotel Booking System, including the frontend and backend, is fully deployed on **AWS**, ensuring scalability, reliability, and performance.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+http://hotel-booking-system.s3-website.eu-north-1.amazonaws.com
 
-### `npm run build` fails to minify
+## Key Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| **Dependency** | **Purpose**                           |
+|-----------------|---------------------------------------|
+| React           | Frontend framework for UI            |
+| Redux           | State management library             |
+| Axios           | Handling API requests and responses  |
+| Bootstrap       | Styling and responsive design        |
+| JWT Decode      | Authentication and token management  |
+
+For a full list of dependencies, refer to the `package.json` file.
+
+---
+
+## License
+
+This project is licensed under the MIT License. Refer to the LICENSE file for details.
+
