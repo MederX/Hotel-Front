@@ -84,29 +84,35 @@ I will add you to the postman workspace
 The following APIs are integrated into the frontend:
 
 ### User Endpoints
-- `POST /RegisterUser` - Register a new user.  
-- `POST /Login` - Log in to the application.  
-- `GET /GetAllUsersAsAdmin` - Retrieve all users (Admin access).  
-- `GET /GetUserbyID` - Get user information by ID.  
-- `GET /getLoggedInUserInfo` - Retrieve logged-in user details.  
-- `GET /getUserBookingHistory` - View user booking history.  
-- `DELETE /DeleteUser` - Delete a user profile.
+- `POST /16.171.253.87:8080/auth/register` - Register a new user.  
+- `POST /16.171.253.87:8080/auth/login` - Log in to the application.  
+- `GET /16.171.253.87:8080/users/all` - Retrieve all users (Admin access). (You can register as admin like this:
+    "email": "....@gmail.com",
+    "password": "....",
+    "phoneNumber": ".....",
+    "name": ".....",
+    "role":ADMIN
+  THEN USE THE TOKEN YOU GOT AS ADMIN TO TO ALL STUFF ONLY ADMIN CAN(UPDATE/DELETE ROOMS etc.)
+- `GET /16.171.253.87:8080/users/get-by-id/2` - Get user information by ID.  
+- `GET /16.171.253.87:8080/users/get-logged-in-profile-info` - Retrieve logged-in user details.  
+- `GET /16.171.253.87:8080/users/get-user-bookings/2` - View user booking history.  
+- `DELETE /l16.171.253.87:8080/users/delete/4` - Delete a user profile.
 
 ### Room Endpoints
-- `POST /AddRoom` - Add a new room (Admin access).  
-- `GET /GetAllRooms` - View all available rooms.  
-- `GET /GetRoomById` - Retrieve room details by ID.  
-- `PUT /UpdateRoomById` - Update room details (Admin access).  
-- `DELETE /DeleteRoomById` - Remove a room from the system (Admin access).  
-- `GET /AllAvailableRooms` - View currently available rooms.  
-- `GET /GetAvailableRoomByDate` - Check room availability for specific dates.  
-- `GET /allRoomTypes` - View all room types.
+- `POST /16.171.253.87:8080/rooms/add` - Add a new room (Admin access).  
+- `GET /16.171.253.87:8080/rooms/all` - View all available rooms.  
+- `GET /16.171.253.87:8080/rooms/room-by-id/2` - Retrieve room details by ID.  
+- `PUT /16.171.253.87:8080/rooms/update/2` - Update room details (Admin access).  
+- `DELETE /16.171.253.87:8080/rooms/delete/8` - Remove a room from the system (Admin access).  
+- `GET /16.171.253.87:8080/rooms/all-available-rooms` - View currently available rooms.  
+- `GET /16.171.253.87:8080/rooms/available-rooms-by-date-and-type?checkInDate=2024-12-12&checkOutDate=2024-12-13&roomType=Standart Single` - Check room availability for specific dates.  
+- `GET /16.171.253.87:8080/rooms/types` - View all room types.
 
 ### Booking Endpoints
-- `POST /BookARoom` - Make a room booking.  
-- `GET /GetBokingConfirmation` - Retrieve booking confirmation details.  
-- `GET /GetBookingsByUserId` - Fetch bookings for a specific user.  
-- `DELETE /CancelBookingByUserId` - Cancel an existing booking.
+- `POST /16.171.253.87:8080/bookings/book-room/2/6` - Make a room booking.  
+- `GET /16.171.253.87:8080/bookings/get-by-confirmation-code/ZOTKPBQK1V` - Retrieve booking confirmation details.  
+- `GET /16.171.253.87:8080/users/get-user-bookings/6` - Fetch bookings for a specific user.  
+- `DELETE /16.171.253.87:8080/bookings/cancel/1` - Cancel an existing booking.
 
 ---
 
